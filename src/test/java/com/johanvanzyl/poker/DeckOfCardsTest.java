@@ -45,4 +45,16 @@ public class DeckOfCardsTest {
         assertEquals(originalSet, shuffledSet);
 
     }
+
+    @Test
+    public void drawCardTest() {
+        DeckOfCards deck = new DeckOfCards();
+        Card undrawnTopCard = List.copyOf(deck.getCards()).get(0);
+
+        Card drawnCard = deck.drawCard();
+
+        assertEquals(undrawnTopCard, drawnCard);
+
+        assertEquals(deck.size(), DECK_SIZE - 1); 
+    }
 }

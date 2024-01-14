@@ -33,8 +33,17 @@ public class DeckOfCards {
         shufflingAlgorithm.shuffle(cards);
     }
 
+    /*
+     * FIXME: This looks like a code smell. I don't need this method in my business logic, 
+     * only in my tests to compare a shuffled vs unshuffled deck.
+     * Find another way...
+     */
     public List<Card> getCards() {
         return cards;
+    }
+
+    public Card drawCard() {
+        return cards.removeFirst();
     }
 
 }
