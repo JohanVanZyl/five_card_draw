@@ -1,6 +1,7 @@
 package com.johanvanzyl.poker;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class DeckOfCards {
     private List<Card> cards;
@@ -42,8 +43,12 @@ public class DeckOfCards {
         return cards;
     }
 
-    public Card drawCard() {
-        return cards.removeFirst();
+    public Card drawCard() throws EmptyDeckException {
+        try {
+            return cards.removeFirst();
+        } catch (NoSuchElementException e) {
+            throw new EmptyDeckException("No more cards left to draw in deck.");
+        }
     }
 
 }

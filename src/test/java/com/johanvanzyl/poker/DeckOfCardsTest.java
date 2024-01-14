@@ -57,4 +57,13 @@ public class DeckOfCardsTest {
 
         assertEquals(deck.size(), DECK_SIZE - 1); 
     }
+
+    @Test(expected = EmptyDeckException.class)
+    public void drawCardFromEmptyDeckRaisesExceptionTest() {
+        DeckOfCards deck = new DeckOfCards();
+
+        for(int i = 1; i <= DECK_SIZE + 1;i++) {
+            deck.drawCard();
+        }
+    }
 }
