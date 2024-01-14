@@ -3,13 +3,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeckOfCards {
-    //We encapsulate the fact that we use a List<Card> to store our deck
-    //instead of leaking it. This allows us to change the implementation
-    //later on.
     private List<Card> cards;
+    private ShufflingAlgorithm shufflingAlgorithm;
 
     public DeckOfCards() {
         initialiseDeck();
+        this.shufflingAlgorithm = new DefaultShuffingAlgorithmImpl();
+    }
+
+    public DeckOfCards(ShufflingAlgorithm algorithm) {
+        initialiseDeck();
+        this.shufflingAlgorithm = algorithm;
     }
 
     private void initialiseDeck() {
@@ -23,6 +27,14 @@ public class DeckOfCards {
 
     public int size() {
         return cards.size();
+    }
+
+    public void shuffle() {
+        shufflingAlgorithm.shuffle(cards);
+    }
+
+    public List<Card> getCards() {
+        return cards;
     }
 
 }
