@@ -1,6 +1,7 @@
-package com.johanvanzyl.poker;
+package com.johanvanzyl.poker.domain;
 
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 import java.util.HashSet;

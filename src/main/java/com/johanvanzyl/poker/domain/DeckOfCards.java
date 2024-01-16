@@ -1,18 +1,17 @@
-package com.johanvanzyl.poker;
+package com.johanvanzyl.poker.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 public class DeckOfCards {
     private List<Card> cards;
-    private ShufflingAlgorithm shufflingAlgorithm;
+    private Shuffler shufflingAlgorithm;
 
     public DeckOfCards() {
-        initialiseDeck();
-        this.shufflingAlgorithm = new DefaultShuffingAlgorithmImpl();
+        this(new DefaultShufflerImpl());
     }
 
-    public DeckOfCards(ShufflingAlgorithm algorithm) {
+    public DeckOfCards(Shuffler algorithm) {
         initialiseDeck();
         this.shufflingAlgorithm = algorithm;
     }
@@ -30,8 +29,8 @@ public class DeckOfCards {
         return cards.size();
     }
 
-    public void shuffle() {
-        shufflingAlgorithm.shuffle(cards);
+    public boolean shuffle() {
+        return shufflingAlgorithm.shuffle(cards);
     }
 
     /*

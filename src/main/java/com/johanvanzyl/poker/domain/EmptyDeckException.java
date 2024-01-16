@@ -1,4 +1,4 @@
-package com.johanvanzyl.poker;
+package com.johanvanzyl.poker.domain;
 
 public class EmptyDeckException extends java.util.NoSuchElementException {
 
