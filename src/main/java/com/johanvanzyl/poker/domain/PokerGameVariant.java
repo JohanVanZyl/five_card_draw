@@ -21,6 +21,6 @@ public abstract class PokerGameVariant {
    }
 
    public String getVariantName() {
-      return variantName.name();
+      return this.variantName.toString();
    }
 }
