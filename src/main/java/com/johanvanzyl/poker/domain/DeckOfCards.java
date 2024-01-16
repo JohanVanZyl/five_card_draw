@@ -5,15 +5,15 @@ import java.util.NoSuchElementException;
 
 public class DeckOfCards {
     private List<Card> cards;
-    private Shuffler shufflingAlgorithm;
+    private Shuffler shuffler;
 
     public DeckOfCards() {
         this(new DefaultShufflerImpl());
     }
 
-    public DeckOfCards(Shuffler algorithm) {
+    public DeckOfCards(Shuffler shuffler) {
         initialiseDeck();
-        this.shufflingAlgorithm = algorithm;
+        this.shuffler = shuffler;
     }
 
     private void initialiseDeck() {
@@ -30,7 +30,7 @@ public class DeckOfCards {
     }
 
     public boolean shuffle() {
-        return shufflingAlgorithm.shuffle(cards);
+        return shuffler.shuffle(cards);
     }
 
     /*
