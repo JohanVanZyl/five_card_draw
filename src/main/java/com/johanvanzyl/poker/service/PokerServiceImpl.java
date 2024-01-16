@@ -24,7 +24,8 @@ public class PokerServiceImpl implements PokerService {
             this.pokerGame = new PokerGame(pokerVariantInstance);
 
         } catch (ReflectiveOperationException e) {
-            System.out.println(e.toString());
+            System.out.println(String.format("The requested poker game '%s' could not be started.", name));
+            System.exit(-1);
         }
     }
 
